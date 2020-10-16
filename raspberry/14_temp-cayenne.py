@@ -30,12 +30,12 @@ client.begin(MQTT_USERNAME, MQTT_PASSWORD, MQTT_CLIENT_ID, port=8883)
 while True:
 	try:
 		client.loop()
-		print("temperatura: "+str(result.temperature))
+		#print("temperatura: "+str(result.temperature))
 		client.celsiusWrite(0, result.temperature)
-		print("humitat: "+str(result.humidity))
+		#print("humitat: "+str(result.humidity))
 		client.virtualWrite(1, result.humidity)
 		timestamp = time.time()
-		time.sleep(5)
+		time.sleep(60)
 
 	except KeyboardInterrupt:
 		break
