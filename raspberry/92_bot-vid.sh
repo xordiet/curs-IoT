@@ -1,7 +1,7 @@
 #!/bin/sh
 
-TOKEN="1286093258:AAFzERZvXst-jlWpZkNYVJ-1l-ZJKMzY6Gw"
-ID='-1001499525520'
+TOKEN="xxxx"
+ID='xxx'
 MENSAJE="Captura de camera"
 URL="https://api.telegram.org/bot$TOKEN/sendVideo"
 
