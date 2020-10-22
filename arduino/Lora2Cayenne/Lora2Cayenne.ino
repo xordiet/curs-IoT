@@ -26,19 +26,16 @@ void setup() {
   // Defineix el LED_BUILTIN per mostrar missatges sense consola
   #define pinMode(LED_BUILTIN, OUTPUT);
 
-  while (!Serial);
+  //while (!Serial);
   // Canviar segons la banda que usi el teu LoRa (ex. EU868, US915, AS923, ...)
   if (!modem.begin(EU868)) {
     Serial.println("Error a l'iniciar el mòdul");
-    //Mostra l'error amb 30 blinks del LED_BUILTIN
-    for (int i=1; i<=30; i++) {          
-      digitalWrite(LED_BUILTIN, HIGH);   
-      delay(100);                       
-      digitalWrite(LED_BUILTIN, LOW);    
-      delay(100);
-    }
+    //Mostra l'error amb 10 blinks ràpids del LED_BUILTIN
+    blinka(10, 100);
     while (1) {}
-  };
+  } else {
+    blinka(10, 500);;
+  }
   Serial.print("Your module version is: ");
   Serial.println(modem.version());
   Serial.print("Your device EUI is: ");
@@ -48,23 +45,13 @@ void setup() {
   //int connected = modem.joinOTAA(appEui, appKey);
   if (!connected) {
     Serial.println("Something went wrong; are you indoor? Move near a window and retry");
-    //Mostra l'error amb 30 blinks del LED_BUILTIN
-    for (int i=1; i<=30; i++) {          
-      digitalWrite(LED_BUILTIN, HIGH);   
-      delay(100);                       
-      digitalWrite(LED_BUILTIN, LOW);    
-      delay(100);
-    }
+    //Mostra l'error amb 20 blinks ràpids del LED_BUILTIN
+    blinka(20, 100);
     while (1) {}
   } else {
     Serial.println("Connexió exitosa");
-    //Mostra que està funcionant amb 3 blinks del LED_BUILTIN
-    for (int i=1; i<=3; i++) {          
-      digitalWrite(LED_BUILTIN, HIGH);   
-      delay(100);                       
-      digitalWrite(LED_BUILTIN, LOW);    
-      delay(100);
-    }
+    //Mostra que està funcionant amb 3 blinks d'1 segon del LED_BUILTIN
+    blinka(3, 1000);
   }
 
   // Set poll interval to 180 secs.
@@ -85,24 +72,14 @@ void loop() {
   err = modem.endPacket(true);
   if (err > 0) {
     Serial.println("Message sent correctly!");
-    //Mostra que està funcionant amb 3 blinks del LED_BUILTIN
-    for (int i=1; i<=3; i++) {          
-      digitalWrite(LED_BUILTIN, HIGH);   
-      delay(100);                       
-      digitalWrite(LED_BUILTIN, LOW);    
-      delay(100);
-    }
+    //Mostra que està funcionant amb 15 blinks lents del LED_BUILTIN
+    blinka(15, 500);
   } else {
     Serial.println("Error sending message :(");
     Serial.println("(you may send a limited amount of messages per minute, depending on the signal strength");
     Serial.println("it may vary from 1 message every couple of seconds to 1 message every minute)");
-    //Mostra l'error amb 30 blinks del LED_BUILTIN
-    for (int i=1; i<=30; i++) {          
-      digitalWrite(LED_BUILTIN, HIGH);   
-      delay(100);                       
-      digitalWrite(LED_BUILTIN, LOW);    
-      delay(100);
-    }
+    //Mostra l'error amb 30 blinks ràpids del LED_BUILTIN
+    blinka(30, 100);
   }
   delay(1000);
   if (!modem.available()) {
@@ -122,9 +99,19 @@ void loop() {
     }
     Serial.println();
   }
-  Serial.println("waiting 180 seconds");
-  for (int i=1; i<=180; i++) { //wait a minute
+  Serial.println("pausa de 10 minuts");
+  for (int i=1; i<=10; i++) { //pausa d'un minut
     Serial.print(i);
-    delay(1000);
+    delay(1000*60);
+    blinka(1, 1000);
   } 
+}
+
+void blinka (int cops, int dely){
+  for (int i=1; i<=cops; i++) {          
+      digitalWrite(LED_BUILTIN, HIGH);   
+      delay(dely);                       
+      digitalWrite(LED_BUILTIN, LOW);    
+      delay(dely);                       
+  }
 }
