@@ -11,9 +11,9 @@ GPIO.setmode(GPIO.BOARD)
 GPIO.cleanup()
 
 #informació d'Autenticació de Cayenne
-MQTT_USERNAME = "bf9f5d20-0d4c-11eb-8779-7d56e82df461"
-MQTT_PASSWORD = "6c49c56c1a87e43b06c0c93eb63cd10101099fab"
-MQTT_CLIENT_ID = "3b8cebf0-0df2-11eb-a2e4-b32ea624e442"
+MQTT_USERNAME = "xxx"
+MQTT_PASSWORD = "xxx"
+MQTT_CLIENT_ID = "xxx"
 
 # llegir la data llegint el pin 11
 instance = dht11.DHT11(pin = 11)
