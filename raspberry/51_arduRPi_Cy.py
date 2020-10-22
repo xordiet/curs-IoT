@@ -5,9 +5,9 @@ import logging
 import sys
 
 #info d'autenticacio de cayenne
-MQTT_USERNAME = "bf9f5d20-0d4c-11eb-8779-7d56e82df461"
-MQTT_PASSWORD  = "6c49c56c1a87e43b06c0c93eb63cd10101099fab"
-MQTT_CLIENT_ID = "43e22db0-0f87-11eb-883c-638d8ce4c23d"
+MQTT_USERNAME = "xxx"
+MQTT_PASSWORD  = "xxx"
+MQTT_CLIENT_ID = "xxx"
 
 arduino = serial.Serial(
 	port = "/dev/ttyACM0",
