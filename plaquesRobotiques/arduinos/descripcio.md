@@ -1,6 +1,6 @@
-#Codis arduinos de les pràctiques#
+# Codis arduinos de les pràctiques
 
-##Segona sessió##
+## Segona sessió
 
 **2.1** 
 
@@ -16,7 +16,7 @@
 
 **2.4ampliada** 
 
-##Tercera sessió##
+##  Tercera sessió
 
 **3.1**
 
@@ -24,7 +24,7 @@
 
 **3.3**
 
-##Quarta sessió##
+## Quarta sessió
 
 **4.1** LCD
 
@@ -34,7 +34,7 @@
 
 ~~**4.99** No acabat de desenvolupar~~
 
-##Cinquena sessió##
+## Cinquena sessió
 
 **5.1** Keymap + LCD (password)
 
