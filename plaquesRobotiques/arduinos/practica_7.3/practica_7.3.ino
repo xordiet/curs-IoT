@@ -19,11 +19,11 @@ void setup() {
 }
 
 void loop() { 
-  if (Serial.available() > 0){
+  if (Serial.available()){
       int data = Serial.parseInt();
       Serial.println(data);
 
-      updateShiftRegister(data);
+      digitalWrite(latchPin, LOW);
       for (int i = 0; i < 8; i++){
         updateShiftRegister(data);
       }
