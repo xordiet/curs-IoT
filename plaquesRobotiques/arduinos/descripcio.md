@@ -1,5 +1,9 @@
 # Codis arduinos de les pràctiques
 
+## Primera sessió
+
+**1** Hello world!
+
 ## Segona sessió
 
 **2.1** 
