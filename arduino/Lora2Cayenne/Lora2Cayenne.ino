@@ -30,11 +30,11 @@ void setup() {
   // Canviar segons la banda que usi el teu LoRa (ex. EU868, US915, AS923, ...)
   if (!modem.begin(EU868)) {
     Serial.println("Error a l'iniciar el mòdul");
-    //Mostra l'error amb 10 blinks ràpids del LED_BUILTIN
-    blinka(10, 100);
+    //Mostra l'error amb 3 blinks ràpids del LED_BUILTIN
+    blinka(3, 100);
     while (1) {}
   } else {
-    blinka(10, 500);;
+    blinka(3, 500);;
   }
   Serial.print("Your module version is: ");
   Serial.println(modem.version());
@@ -45,13 +45,13 @@ void setup() {
   //int connected = modem.joinOTAA(appEui, appKey);
   if (!connected) {
     Serial.println("Something went wrong; are you indoor? Move near a window and retry");
-    //Mostra l'error amb 20 blinks ràpids del LED_BUILTIN
-    blinka(20, 100);
+    //Mostra l'error amb 5 blinks ràpids del LED_BUILTIN
+    blinka(5, 100);
     while (1) {}
   } else {
     Serial.println("Connexió exitosa");
-    //Mostra que està funcionant amb 3 blinks d'1 segon del LED_BUILTIN
-    blinka(3, 1000);
+    //Mostra que està funcionant amb 5 blinks d'1 segon del LED_BUILTIN
+    blinka(5, 1000);
   }
 
   // Set poll interval to 180 secs.
@@ -100,7 +100,7 @@ void loop() {
     Serial.println();
   }
   Serial.println("pausa de 10 minuts");
-  for (int i=1; i<=10; i++) { //pausa d'un minut
+  for (int i=0; i<10; i++) { //pausa d'un minut
     Serial.print(i);
     delay(1000*60);
     blinka(1, 1000);
