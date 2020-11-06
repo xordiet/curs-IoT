@@ -1,0 +1,131 @@
+
+==================================================
+PL2303G Driver Setup Installer, Prolific Edition
+Setup Installer Revision Note History
+==================================================
+
+System Requirement:
+  . USB 1.1/2.0/3.0/3.1 Host Controller
+  . Device using PL2303GC/GS/GT/GL/GE PL2323 version chips
+  . Supports the following Windows OS Family (32 and 64 bit):
+	- Windows XP SP3
+	- Windows Server 2003 
+	- Windows Vista 
+	- Windows Server 2008         
+	- Windows 7 
+	- Windows Server 2008R2 
+	- Windows 8 
+	- Windows Server 2012 
+	- Windows 8.1
+	- Windows Server 2012R2 
+	- Windows 10 (TH1/TH2/RS1/RS2/RS3/RS4/RS5/19H1)
+	- Windows Server 2016
+	- also compatible with POSReady and Windows Embedded Industry
+
+	NOTE: 
+		- Windows 98/ME/2000/XP driver technical support are discontinued.
+
+ 
+Supported device ID and product strings:
+  . VID_067B&PID_23A3 for "Prolific PL2303GC USB Serial COM Port" (PL2303G series)
+  . VID_067B&PID_23C3 for "Prolific PL2303GT USB Serial COM Port" (PL2303G series)
+  . VID_067B&PID_23D3 for "Prolific PL2303GL USB Serial COM Port" (PL2303G series)
+  . VID_067B&PID_23E3 for "Prolific PL2303GE USB Serial COM Port" (PL2303G series)
+  . VID_067B&PID_23F3 for "Prolific PL2303GS USB Serial COM Port" (PL2303G series)
+  . VID_067B&PID_2323 for "Prolific PL2323 USB CDC Serial Port" (PL2303G series)
+
+
+Driver Versions:
+-------------------
+	- WDF WHQL Driver: v5.0.8.0 (07/03/2019) - for Windows 7/8.1/10; Server2008/2008R2/2012/2012R2/2016
+	- WDM WHQL Driver: v5.0.8.1 (07/08/2019) - for Windows 2000/XP/Server2003/POSReady2009 
+
+Release Notes:
+---------------
+PL2303 Driver Installer v1.4.0
+   Installer & Build date: 1.4.0 (2019-07-15)
+	GUID:ECC3713C-08A4-40E3-95F1-7D0704F1CE5E
+ 
+   =====================================================================
+   Windows WDF WHQL Driver v5.0.8.0 (07/03/2019):
+   =====================================================================
+	Driver Revision Change:
+	--------------------------------
+        .  Driver Certified for Windows 10 19H1  (version 1903)
+
+
+Previous History:
+	Driver v5.0.7.15 (Driver Installer v1.3.0):
+	---------------------------------------------------
+        . Fixed EEPROM issue
+
+	Driver v5.0.7.13 (Driver Installer v1.2.0):
+	---------------------------------------------------
+        . Driver Certified for Windows 10RS5  (version 1809)
+
+
+  ================================================================
+   Windows WDM 2000/XP/Server2003 Driver v5.0.8.1 (07/08/2019) 
+  ================================================================
+  Beginning September 2014, Windows XP driver will not be updated anymore.
+
+	Driver Change from v5.0.7.16 (Driver Installer v1.4.0):
+	-----------------------------------------------------------------------
+	.   Fixed Baud rare issue
+
+Previous History:
+	Driver Change from v5.0.7.13 (Driver Installer v1.2.0):
+	-----------------------------------------------------------------------
+	. . Fixed EEPROM issue
+	
+   
+
+   Language Support: 
+	- English (default)
+
+Download Latest Driver here:
+http://www.prolific.com.tw/US/ShowProduct.aspx?p_id=225&pcid=41
+
+
+===========================
+How to Install Driver
+===========================
+1. Unplug any PL2303G USB Device first.
+2. Run Driver Installer EXE program to install. Wait to finish. 
+3. Plug PL2303G USB Device and go to Device Manager to check COM Port number. 
+4. If PL2303G is embedded, you might need to restart Windows or rescan hardware in Device Manager.
+5. Refer to PL2303G Windows Driver User's Manual. 
+
+NOTE: For silent install, include the syntax "/s" at the end of the EXE installer program. 
+For example: "PL2303_Prolific_DriverInstaller_v1.10.0.exe /s"
+
+
+===========================
+How to do Silent Uninstallation
+===========================
+You need to create ISS response script to run silent uninstall or silent overwrite (update/modify). 
+
+Example of how to create Uninstall script:
+1. Copy your SETUP.EXE file to Temp folder.
+2. Make sure you already run SETUP driver install beforehand. 
+3. Run C:\TEMP\SETUP.EXE -r -f1¡¨C:\TEMP\uninstall.iss¡¨ and choose option Remove in dialog box. 
+4. The file uninstall.iss will be created in Temp folder. 
+
+To test silent uninstall:
+1. Run ¡§C:\TEMP\SETUP.EXE -s¡¨ to install driver again.
+2. Run C:\TEMP\SETUP.EXE -s ¡Vf1¡¨C:\TEMP\uninstall.iss¡¨ to silent uninstall.
+
+=============================
+How to do Silent Driver Update/Overwrite
+==============================
+Example of how to create Overwrite script:
+1. Make sure you already run SETUP driver install beforehand. 
+2. Run C:\TEMP\SETUP.EXE -r -f1¡¨C:\TEMP\overwrite.iss¡¨ and choose first option (Modify) in dialog box to install new driver (overwrite).
+
+To test silent overwrite:
+1. Run SETUP.EXE of old version. 
+2. Run C:\TEMP\SETUP.EXE -s ¡Vf1¡¨C:\TEMP\overwrite.iss¡¨ to silent install new driver version. 
+
+========================================
+Prolific Technology Inc.
+http://www.prolific.com.tw
