@@ -6,6 +6,7 @@ void updateShiftRegister(byte leds){
    shiftOut(dataPin, clockPin, LSBFIRST, leds);
 }
 
+
 void imprimeixText(String text){
   for(int i=0; i < text.length(); i++){
       char data = text.charAt(i);
