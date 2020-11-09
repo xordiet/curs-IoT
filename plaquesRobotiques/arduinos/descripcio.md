@@ -47,3 +47,19 @@
 ~~**5.1c** No desenvolupat~~
 
 **5.2** IR Remote
+
+## Setena sessió
+
+**7.2** Chip 74HC595
+
+**7.3** Chip 74HC595
+
+## Vuitena sessió
+
+**8.1** Chip 74HC595 Escriure text amb leds versió Joan Masdemont
+
+**8.2** Chip 74HC595 Escriure text amb leds versió meva
+
+**8.3Escriptura** escriure un missatge a la targeta RFID
+
+**8.3Lectura** llegir un missatge a la targeta RFID
