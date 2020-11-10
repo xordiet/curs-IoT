@@ -24,6 +24,12 @@ void imprimeixText(String text){
    }
 }
 
+void apagarho(){
+  byte r = 0;
+  digitalWrite(latchPin, LOW);
+  updateShiftRegister(r);
+  digitalWrite(latchPin, HIGH);
+}
 
 void setup() {
   pinMode(latchPin, OUTPUT);
@@ -39,9 +45,6 @@ void loop() {
     imprimeixText(text);
     delay(10000);
     //apaga-ho tot
-    byte r = 0;
-    digitalWrite(latchPin, LOW);
-    updateShiftRegister(r);
-    digitalWrite(latchPin, HIGH);
+    apagarho();
   }
 }
