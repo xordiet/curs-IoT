@@ -4,9 +4,9 @@
 #define SS_PIN 10 //Pin 10 para el SS (SDA) del RC522
 MFRC522 mfrc522(SS_PIN, RST_PIN); ///Creem l'objecte per al RC522
 
-#define ENABLE 5
-#define DIRA 3
-#define DIRB 4
+#define ENABLE 7
+#define DIRA 6
+#define DIRB 5
 
 void setup() {
   //---set pin direction

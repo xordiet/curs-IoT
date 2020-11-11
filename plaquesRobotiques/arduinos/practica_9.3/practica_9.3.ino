@@ -4,27 +4,38 @@
 #define SS_PIN 10 //Pin 10 para el SS (SDA) del RC522
 MFRC522 mfrc522(SS_PIN, RST_PIN); ///Creem l'objecte per al RC522
 
-const int ENABLE = 7;  
-const int DIRA = 6;  
-const int DIRB = 5;
-int pwm1;          //Variable del PWM 1
-int pwm2;          //Variable del PWM 2
+//Defineix els pins del motoret
+#define ENABLE 7
+#define DIRA 6
+#define DIRB 5
 
-int estat=0;
-
-void setup() {
-  pinMode(DIRA,OUTPUT);
-  pinMode(DIRB,OUTPUT);
-  Serial.begin(9600); //Iniciem el port sèrie
-  SPI.begin(); //Iniciem el Bus SPI
-  mfrc522.PCD_Init(); // Iniciem el MFRC522
-  Serial.println("Apropi targeta:");
-}
-
+int estat=0; //estat del motor
+int p = 100; //pausa entre lectures per donar temps a treure el tag
 byte ActualUID[4]; //almacenará el código del Tag leído
 byte Usuari[4]= {0xE9, 0x03, 0xAD, 0xA3} ; //código de l'usuari
 
+void setup() {
+  //Activa els pins del motoret
+  pinMode(ENABLE,OUTPUT);
+  pinMode(DIRA,OUTPUT);
+  pinMode(DIRB,OUTPUT);
+  //Inicia el port sèrie per mostrar missatges
+  Serial.begin(9600);
+  //Iniciem el necessari per l'RFID
+  SPI.begin(); //Iniciem el Bus SPI
+  mfrc522.PCD_Init(); // Iniciem el MFRC522
+  //Mostrem missatge inicial
+  Serial.println("Apropi targeta:");
+}
+
 void loop() {
+  if(llegirTag() and compareArray(mfrc522.uid.uidByte,Usuari)){
+    canviafan();
+  }
+}
+
+//funció per llegir els tags
+boolean llegirTag(){
   if ( mfrc522.PICC_IsNewCardPresent()){ // Si detecta una nova targeta
     if ( mfrc522.PICC_ReadCardSerial()){ // Si llegeix la tarja
       // Mostrem l'UID al port sèrie
@@ -35,20 +46,16 @@ void loop() {
         ActualUID[i]=mfrc522.uid.uidByte[i];
       }
       Serial.print(" ");
-      //Executem la comparació per veure si és la targeta garantida
-      if(compareArray(ActualUID,Usuari)){
-        Serial.println("Accés correcte...");
-        canviafan();
-      }else{
-        Serial.println("Accés denegat...");
-      }
       // Terminamos la lectura de la tarjeta tarjeta actual
       mfrc522.PICC_HaltA();
+      Serial.println();
+      return true;
     }
   }
+  return false;
 }
 
-//Función per comparar dos vectors
+//Funció per comparar dos vectors
 boolean compareArray(byte array1[],byte array2[]){
   if(array1[0] != array2[0])return(false);
   if(array1[1] != array2[1])return(false);
@@ -57,16 +64,19 @@ boolean compareArray(byte array1[],byte array2[]){
   return(true);
 }
 
+//Funció per activar/desactivar el ventilador
 void canviafan(){
   if(estat==0){
-    Serial.println("activa");
+    Serial.println("Encén :)");
+    digitalWrite(ENABLE,HIGH); // encén
+    digitalWrite(DIRA,HIGH); //quina direcció
+    digitalWrite(DIRB,LOW);
     estat=1;
-    analogWrite(DIRA,255);
-    analogWrite(DIRB,0);
+    Serial.println("Apropi targeta:");
   } else {
-    Serial.println("apaga");
+    Serial.println("Apaga :(");
+    digitalWrite(ENABLE,LOW); // apaga
     estat=0;
-    analogWrite(DIRA,0);
-    analogWrite(DIRB,0);
+    Serial.println("Apropi targeta:");
   }
 }

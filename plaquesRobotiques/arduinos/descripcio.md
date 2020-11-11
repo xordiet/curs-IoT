@@ -48,13 +48,13 @@
 
 **5.2** IR Remote
 
-## Setena sessió
+## Setena sessió (74HC595)
 
 **7.2** Chip 74HC595
 
 **7.3** Chip 74HC595
 
-## Vuitena sessió
+## Vuitena sessió (74HC595 i RFID)
 
 **8.1** Chip 74HC595 Escriure text amb leds versió Joan Masdemont
 
@@ -63,3 +63,15 @@
 **8.3Escriptura** escriure un missatge a la targeta RFID
 
 **8.3Lectura** llegir un missatge a la targeta RFID
+
+## Novena sessió (RFID)
+
+**9.1** Encendre ventilador al llegir RFID determinat
+
+**9.2** Alterna direccions ventilador al llegir RFID concret
+
+**9.3** Activa o desactiva ventilador al llegir RFID concret
+
+## Desena sessió (Motors I)
+
+
