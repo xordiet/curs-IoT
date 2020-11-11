@@ -68,10 +68,20 @@
 
 **9.1** Encendre ventilador al llegir RFID determinat
 
-**9.2** Alterna direccions ventilador al llegir RFID concret
+**9.2** Alterna direccions (amb delay) ventilador al llegir RFID concret
 
 **9.3** Activa o desactiva ventilador al llegir RFID concret
 
+**9.4** Alterna direccions (en continuu) ventilador al llegir RFID concret
+
 ## Desena sessió (Motors I)
+
+**10.1** Encen i apaga motor canviant sentit
+
+**10.2** Canvi de velocitat i de sentit
+
+**10.3** Dos motors
+
+**10.4** Dos motors amb Joystik
 
 
