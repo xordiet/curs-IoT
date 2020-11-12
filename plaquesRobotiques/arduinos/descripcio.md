@@ -84,4 +84,7 @@
 
 **10.4** Dos motors amb Joystik
 
+## Onzena sessió (millis)
+
+**11.1** Passar a millis un programa fet amb delay (he triat el 10.1)
 
