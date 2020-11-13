@@ -74,7 +74,7 @@
 
 **9.4** Alterna direccions (en continuu) ventilador al llegir RFID concret
 
-## Desena sessió (Motors I)
+## Desena sessió (Motors I: corrent continuu)
 
 **10.1** Encen i apaga motor canviant sentit
 
@@ -88,3 +88,20 @@
 
 **11.1** Passar a millis un programa fet amb delay (he triat el 10.1)
 
+# Dotzena sessió (Motors II: pas a pas / stepper)
+
+**12.1** Pas complert simple
+
+**12.2** Pas complert simple, usant matriu per reduir el codi
+
+**12.3** Pas complert dues bobines
+
+**12.4** Mig pas, volta sencera
+
+**12.5** Girar x graus concrets depenent número iteracions (30/330 en aquest cas)
+
+**12.6** el 12.5 millorat amb l'ús de funcions
+
+**12.7** Girar x graus que jo li indiqui per port sèrie i després s'atura
+
+**12.8** Girar x graus que jo li indiqui (sempre menor de 360) s'atura cinc segons, i continua fins completar la volta sencera, i es torna a aturar 5 segons abans de rebre nova dada
