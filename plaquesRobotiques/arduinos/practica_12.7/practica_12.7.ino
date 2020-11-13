@@ -4,7 +4,6 @@ int IN2 = 9;
 int IN3 = 10;
 int IN4 = 11;
 int demora = 15; //la pausa entre passos, no pot ser inferior a 10 ms
-int angle = 30;
 
 //declarem la seqüència per array bidimensional
 int paso[4][4]={
