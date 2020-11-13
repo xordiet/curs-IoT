@@ -105,3 +105,5 @@
 **12.7** Girar x graus que jo li indiqui per port sèrie i després s'atura
 
 **12.8** Girar x graus que jo li indiqui (sempre menor de 360) s'atura cinc segons, i continua fins completar la volta sencera, i es torna a aturar 5 segons abans de rebre nova dada
+
+**12.9** Girar x graus que jo li indiqui en el sentit que calgui en positiu o negatiu
