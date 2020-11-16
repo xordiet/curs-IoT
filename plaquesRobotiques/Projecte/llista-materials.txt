@@ -1,0 +1,17 @@
+2x L293D
+2x 74HC595
+1x Mòdul d'alimentació MB102
+1x Sensor Ultrasònic HC-SR04
+1x Botó pulsador
+1x Mòdul Joystick
+1x Transmissor/receptor radiofreqüència
+1x ULN2003
+1x fotoresistor
+2x leds
+5x resistències 220Omn. 
+
+8x cargols M3 hex 3x30mm
+8x femelles M3
+4x cargols M3 hex 3x6 mm
+4x separadors femella-mascle M3x15
+
