@@ -13,12 +13,22 @@ void updateShiftRegister(byte fron){
 }
 
 void moume(byte data){
+  Serial.print("moume: ");
   Serial.println(data, BIN);
   //analogWrite(actmt, veloc);
   digitalWrite(actmt, HIGH);
   digitalWrite(latch1, LOW);
   for (int i = 0; i < 8; i++){
     updateShiftRegister(data);
+  }
+  digitalWrite(latch1, HIGH);
+}
+void aturam(){
+  Serial.println("aturam!");
+  digitalWrite(actmt, LOW);
+  digitalWrite(latch1, LOW);
+  for (int i = 0; i < 8; i++){
+    updateShiftRegister(0);
   }
   digitalWrite(latch1, HIGH);
 }
@@ -35,11 +45,18 @@ void setup()
 }
 
 void loop(){
-  if (Serial.available()){
+  if (Serial.available() > 0){
       data = Serial.parseInt();
+      Serial.println("rebut!");
       Serial.print(data);
       Serial.print(": ");
       Serial.println(data, BIN);
-      moume(data);
+      if (data==0){
+        //aturam();
+      } else {
+        //aturam();
+        //delay(10);
+        moume(data);
+      }
   }
 }
