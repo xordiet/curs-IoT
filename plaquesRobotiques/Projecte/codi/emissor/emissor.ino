@@ -16,6 +16,11 @@ int ly;
 int estat;
 
 void premboto(int bt){
+  Serial.println("Premut botó "+String(bt));
+  digitalWrite(o1, HIGH);
+  digitalWrite(o2, HIGH);
+  digitalWrite(o3, HIGH);
+  digitalWrite(o4, HIGH);
   digitalWrite(bt, LOW);
   digitalWrite(LED_BUILTIN, HIGH);
   delay(10);
@@ -65,9 +70,9 @@ void loop(){
   if((lx>250 and lx<750) and ly < 250){ // endavant
     estat = 1;  
   } else if(lx > 750 and (ly>250 and ly<750)){ // dreta
-    estat = 2;  
-  } else if((lx>250 and lx<750) and ly > 750){ // enrera
     estat = 3;  
+  } else if((lx>250 and lx<750) and ly > 750){ // enrera
+    estat = 2;  
   } else if(lx < 250 and (ly>250 and ly<750)){ // esquerra
     estat = 4;  
   } else {
