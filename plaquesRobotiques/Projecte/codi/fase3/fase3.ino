@@ -26,8 +26,8 @@ int conducc[10] = {
   85,  //mode 2 tot enrera
   153, //mode 3 gira dreta
   102, //mode 4 gira esquerra
-  0, //mode 5
-  0, //mode 6
+  0, //mode 5 per radiofreqüència
+  0, //mode 6 per port sèrie
   0, //mode 7
   0, //mode 8
   0  //mode 9
